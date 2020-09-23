@@ -16,6 +16,7 @@ function generateToken(params = {}) {
     });
 }
 
+// Rota de Registro de Usuário
 router.post('/register', async (req, res) => {
     const { email } = req.body;
     try {
@@ -35,6 +36,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
+// Rota para autenticação de Usuário
 router.post('/authenticate', async (req, res) => {
     const { email, password } = req.body;
 
@@ -48,14 +50,13 @@ router.post('/authenticate', async (req, res) => {
 
     user.password = undefined;
 
-
-
     res.send({
         user,
         token: generateToken({ id: user.id }),
     });
 });
 
+// Rota para soliciatção de Token para mudança de senha 
 router.post('/forgot_password', async (req, res) => {
     const { email } = req.body;
 
@@ -75,7 +76,7 @@ router.post('/forgot_password', async (req, res) => {
                 passwordResetToken: token,
                 passwordResetExpires: now,
             }
-        }, { new: true, useFindAndModify: false }
+        }, { new: true, useFindAndModify: false } 
         );
 
         console.log(token, now);
@@ -87,6 +88,7 @@ router.post('/forgot_password', async (req, res) => {
 
 });
 
+// Rota Para mudança de Senha
 router.post('/reset_password', async (req, res) => {
     const { email, token, password } = req.body;
 
@@ -94,7 +96,6 @@ router.post('/reset_password', async (req, res) => {
 
         const user = await User.findOne({ email })
             .select('+passwordResetToken passwordResetExpires');
-
 
         if (!user)
             return res.status(400).send({ error: 'User not found' });
@@ -119,6 +120,7 @@ router.post('/reset_password', async (req, res) => {
 
 });
 
+// Rota para Listar todos Usuários
 router.get('/list_user', async (req, res) => {
     try {
         const user = await User.find();
@@ -128,12 +130,23 @@ router.get('/list_user', async (req, res) => {
     }
 });
 
+// Rota para Buscar Usuário por Id
 router.get('/:userId', async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         return res.send({ user });
     } catch (err) {
         return res.status(400).send({ error: 'Error loading User' });
+    }
+});
+
+// Rota para Deletar Usuário 
+router.delete('/:userId', async (req, res) => {
+    try {
+        await User.findByIdAndRemove(req.params.userId);
+        return res.send();
+    } catch (err) {
+        return res.status(400).send({ error: 'Error deleting User' });
     }
 });
 

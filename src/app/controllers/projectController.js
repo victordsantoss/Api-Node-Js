@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.use(authMiddleware);
 
+// Rota para Listar Projetos
 router.get('/', async (req, res) => {
     try {
         const project = await Project.find().populate(['user', 'tasks']);
@@ -18,6 +19,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Rota pra Listar Projetos por Id
 router.get('/:projectId', async (req, res) => {
     try {
         const project = await Project.findById(req.params.projectId).populate(['user', 'tasks']);
@@ -28,6 +30,7 @@ router.get('/:projectId', async (req, res) => {
     }
 });
 
+// Rota para Criar Projetos
 router.post('/', async (req, res) => {
     try {
         const { title, description, tasks } = req.body;
@@ -51,6 +54,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Rota para atualizar Projetos
 router.put('/:projectId', async (req, res) => {
     try {
         const { title, description, tasks } = req.body;
@@ -82,6 +86,7 @@ router.put('/:projectId', async (req, res) => {
     }
 });
 
+// Rota para deletar projetos por Id
 router.delete('/:projectId', async (req, res) => {
     try {
         await Project.findByIdAndRemove(req.params.projectId).populate('user');

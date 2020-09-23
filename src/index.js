@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 require('./app/controllers/index')(app);
 
-app.listen(3000, () => {
-    console.log("Servidor Rodando na url http://localhost:3000")
+app.listen(8081, () => {
+    console.log("Servidor Rodando na url http://localhost:8081")
 })
 
