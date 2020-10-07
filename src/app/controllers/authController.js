@@ -1,15 +1,14 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs'); // Módulo responsável pela encriptação da senha
+const jwt = require('jsonwebtoken'); // Módulo responsável pelos tokens de autenticação
 const crypto = require('crypto');
 const mailer = require('../../modules/mailer')
-
 const authConfig = require('../../config/auth');
+const router = express.Router();
 
 const User = require('../models/User');
 
-const router = express.Router();
-
+// Função responsável por gerar um token a cada autenticação de usuário baseado em um hash md5 que será a chave da aplicação
 function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
@@ -56,7 +55,27 @@ router.post('/authenticate', async (req, res) => {
     });
 });
 
-// Rota para soliciatção de Token para mudança de senha 
+// Rota para Listar todos Usuários
+router.get('/list_user', async (req, res) => {
+    try {
+        const user = await User.find();
+        return res.send({ user });
+    } catch (err) {
+        return res.status(400).send({ error: 'Error loading Users' });
+    }
+});
+
+// Rota para Buscar Usuário por Id
+router.get('/:userId', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId);
+        return res.send({ user });
+    } catch (err) {
+        return res.status(400).send({ error: 'Error loading User' });
+    }
+});
+
+// Rota 'Esqueci minha senha' que serve para soliciatção de Token para a mudança 
 router.post('/forgot_password', async (req, res) => {
     const { email } = req.body;
 
@@ -76,10 +95,10 @@ router.post('/forgot_password', async (req, res) => {
                 passwordResetToken: token,
                 passwordResetExpires: now,
             }
-        }, { new: true, useFindAndModify: false } 
-        );
+        }, { new: true, useFindAndModify: false });
 
         console.log(token, now);
+        return res.send ({token: token})
 
     } catch (err) {
         console.log(err);
@@ -118,26 +137,6 @@ router.post('/reset_password', async (req, res) => {
         res.status(400).send({ error: 'Cannot reset password, try again' });
     }
 
-});
-
-// Rota para Listar todos Usuários
-router.get('/list_user', async (req, res) => {
-    try {
-        const user = await User.find();
-        return res.send({ user });
-    } catch (err) {
-        return res.status(400).send({ error: 'Error loading Users' });
-    }
-});
-
-// Rota para Buscar Usuário por Id
-router.get('/:userId', async (req, res) => {
-    try {
-        const user = await User.findById(req.params.userId);
-        return res.send({ user });
-    } catch (err) {
-        return res.status(400).send({ error: 'Error loading User' });
-    }
 });
 
 // Rota para Deletar Usuário 

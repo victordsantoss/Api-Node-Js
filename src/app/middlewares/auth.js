@@ -1,3 +1,4 @@
+// Intercepta a requisição entre controller e a rota faz uma determinada verificação
 const jwt = require('jsonwebtoken');
 const authConfig = require('../../config/auth.json');
 

@@ -14,7 +14,6 @@ const ProjectSchema = new mongoose.Schema({
         ref: 'User',
         require: true,
     },
-
     tasks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Task',

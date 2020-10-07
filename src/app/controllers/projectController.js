@@ -1,34 +1,11 @@
 const express = require('express');
 const authMiddleware = require('../middlewares/auth');
+const router = express.Router();
 
 const Project = require('../models/project');
 const Task = require('../models/task');
 
-const router = express.Router();
-
 router.use(authMiddleware);
-
-// Rota para Listar Projetos
-router.get('/', async (req, res) => {
-    try {
-        const project = await Project.find().populate(['user', 'tasks']);
-
-        return res.send({ project });
-    } catch (err) {
-        return res.status(400).send({ error: 'Error loading projects' });
-    }
-});
-
-// Rota pra Listar Projetos por Id
-router.get('/:projectId', async (req, res) => {
-    try {
-        const project = await Project.findById(req.params.projectId).populate(['user', 'tasks']);
-
-        return res.send({ project });
-    } catch (err) {
-        return res.status(400).send({ error: 'Error loading projects' });
-    }
-});
 
 // Rota para Criar Projetos
 router.post('/', async (req, res) => {
@@ -51,6 +28,28 @@ router.post('/', async (req, res) => {
     } catch (err) {
         console.log(err)
         return res.status(400).send({ error: 'Error creating new project' });
+    }
+});
+
+// Rota para Listar Projetos
+router.get('/', async (req, res) => {
+    try {
+        const project = await Project.find().populate(['user', 'tasks']);
+
+        return res.send({ project });
+    } catch (err) {
+        return res.status(400).send({ error: 'Error loading projects' });
+    }
+});
+
+// Rota pra Listar Projetos por Id
+router.get('/:projectId', async (req, res) => {
+    try {
+        const project = await Project.findById(req.params.projectId).populate(['user', 'tasks']);
+
+        return res.send({ project });
+    } catch (err) {
+        return res.status(400).send({ error: 'Error loading projects' });
     }
 });
 
