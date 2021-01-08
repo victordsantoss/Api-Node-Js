@@ -2,7 +2,7 @@
   Aplicação desenvolvida na Série Api Nodejs ministrada pelo Grupo [RocketSeat](https://rocketseat.com.br/). Feita em NodeJs, esta API conta com uma estrutura de cadastro, autentificação, recupéração de senha e CRUD relacional com MongoDB.
   
  
-# :computer: Tecnologias
+## :computer: Tecnologias
 * **Principais**
   - **Plataforma de Aplicação JavaScript** : [Node js](https://nodejs.org/en/) que permite a criação de aplicações JavaScript para rodar de forma standalone em uma máquina, não dependendo de um browser para a execução.
   fonte: [Opus Sofware](https://www.opus-software.com.br/node-js/)
@@ -23,6 +23,36 @@
   - **[BcryptsJs](https://www.npmjs.com/package/bcryptjs)**: Responsável pelo trabalho de encripitação. 
 * **Pacotes**
   - **[NodeMailer](https://www.npmjs.com/package/nodemailer)**: Pacotes para trabalhar com recebimento de E-mails.
+  
+## :collision: A Aplicação
+1. Cadastro de Usuário
+  <p align="center">
+  <img src="img/1register.png" />
+  </p>
+2. Autenticação de Usuário
+  <p align="center">
+  <img src="img/2auth.png" />
+  </p>
+3. Listagem de Usuários
+  <p align="center">
+  <img src="img/3list.png" />
+  </p>
+4. Listagem de Usuário por Id
+  <p align="center">
+  <img src="img/4list_by_id.png" />
+  </p>
+5. Esqueci minha Senha
+  <p align="center">
+  <img src="img/5forgot_password.png" />
+  </p>
+6. Redefinir Senha
+  <p align="center">
+  <img src="img/6reset_password.png" />
+  </p>
+7. Cadastro de Usuário
+  <p align="center">
+  <img src="img/7delete_user_by_id.png" />
+  </p>
   
 ## :warning: Execução no Sistema Linux 
 > Clonar repositório da aplicação
