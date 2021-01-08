@@ -21,3 +21,17 @@
   - **[BcryptsJs](https://www.npmjs.com/package/bcryptjs)**: Responsável pelo trabalho de encripitação. 
 * **Pacotes**
   - **[NodeMailer](https://www.npmjs.com/package/nodemailer)**: Pacotes para trabalhar com recebimento de E-mails.
+  
+## :warning: Execução no Sistema Linux 
+> Clonar repositório da aplicação
+
+    git clone https://github.com/victordsantoss/api-rest-nodejs.git`
+> Ir até a pasta raiz do projeto 
+
+    cd ../../api-rest-nodejs
+> Instalar o Gerenciador de Pacotes do Node Js
+
+    npm install 
+> Iniciar o Servidor
+
+    node src/index.js
