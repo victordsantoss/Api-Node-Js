@@ -7,7 +7,9 @@
   - **Plataforma de Aplicação JavaScript** : [Node js](https://nodejs.org/en/) que permite a criação de aplicações JavaScript para rodar de forma standalone em uma máquina, não dependendo de um browser para a execução.
   fonte: [Opus Sofware](https://www.opus-software.com.br/node-js/)
   - **Banco de Dados** : [MongoDB](https://www.mongodb.com/3) que é um banco de dados orientado a documentos no formato JSON.
-  - **Gerenciador de Pacotes**: [NPM](https://www.npmjs.com/get-npm) ou [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
+  - **Gerenciador de Pacotes**: [NPM](https://www.npmjs.com/get-npm) ou [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable).
+  - **Ferramenta para testes de Requisições**: [Insomnia](https://insomnia.rest/download/).
+  
 * **FrameWorks**
   - **[Express](https://expressjs.com/pt-br/)**: Responsável pelo tratamento de rotas HTTP.
   - **[Mongoose](https://mongoosejs.com/)**: Responsável por trabalhar com MongoDB dentro do NodeJs.
