@@ -1,12 +1,13 @@
 const express = require('express');
-const bcrypt = require('bcryptjs'); // Módulo responsável pela encriptação da senha
-const jwt = require('jsonwebtoken'); // Módulo responsável pelos tokens de autenticação
+const bcrypt = require('bcryptjs'); 
+const jwt = require('jsonwebtoken'); 
 const crypto = require('crypto');
 const mailer = require('../../modules/mailer')
 const authConfig = require('../../config/auth');
 const router = express.Router();
 
 const User = require('../models/User');
+const { getMaxListeners } = require('../../modules/mailer');
 
 // Função responsável por gerar um token a cada autenticação de usuário baseado em um hash md5 que será a chave da aplicação
 function generateToken(params = {}) {
@@ -44,6 +45,7 @@ router.post('/authenticate', async (req, res) => {
     if (!user)
         return res.status(400).send({ error: 'User not found' });
 
+    // Compara senhas criptografadas
     if (!await bcrypt.compare(password, user.password))
         return res.status(400).send({ error: 'Invalid password' });
 
@@ -96,6 +98,18 @@ router.post('/forgot_password', async (req, res) => {
                 passwordResetExpires: now,
             }
         }, { new: true, useFindAndModify: false });
+
+        /*
+        mailer.sendMail({
+            to: email,
+            from: 'victor.samuelsantoss@gmail.com',
+            template: 'auth/forgot_passwrod',
+            context: { token },
+        }, (err) => {
+            if (err)
+                return res.status(400).send({ error: 'Cannot send forgot password email'});
+        });
+        */
 
         console.log(token, now);
         return res.send ({token: token})

@@ -31,6 +31,7 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
+// Encriptação da senha 
 UserSchema.pre('save', async function (next) {
     const hash = await bcrypt.hash(this.password, 10);
     this.password = hash;
