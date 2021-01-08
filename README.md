@@ -25,6 +25,7 @@
   - **[NodeMailer](https://www.npmjs.com/package/nodemailer)**: Pacotes para trabalhar com recebimento de E-mails.
   
 ## :collision: A Aplicação
+### Auth :zzz: 
 1. **Cadastro de Usuário**
   <p align="center">
   <img src="img/1register.png" />
