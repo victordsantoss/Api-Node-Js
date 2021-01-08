@@ -145,7 +145,7 @@ router.post('/reset_password', async (req, res) => {
 
         await user.save();
 
-        res.send();
+        res.send({message : "OK!"});
 
     } catch (err) {
         res.status(400).send({ error: 'Cannot reset password, try again' });
@@ -157,7 +157,7 @@ router.post('/reset_password', async (req, res) => {
 router.delete('/:userId', async (req, res) => {
     try {
         await User.findByIdAndRemove(req.params.userId);
-        return res.send();
+        return res.send({message: 'OK!'});
     } catch (err) {
         return res.status(400).send({ error: 'Error deleting User' });
     }
