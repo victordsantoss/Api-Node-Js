@@ -25,7 +25,7 @@
   - **[NodeMailer](https://www.npmjs.com/package/nodemailer)**: Pacotes para trabalhar com recebimento de E-mails.
   
 ## :collision: A Aplicação
-### Auth :zzz: 
+### Autenticação :zzz: 
 1. **Cadastro de Usuário**
   <p align="center">
   <img src="img/1register.png" />
@@ -59,6 +59,32 @@
 7. **Cadastro de Usuário**
   <p align="center">
   <img src="img/7delete_user_by_id.png" />
+  </p>
+
+### Projetos :zzz: 
+1. **Cadastro de Projeto**
+  <p align="center">
+  <img src="img/8create_project.png" />
+  </p>
+  
+2. **Listagem de Projetos**
+  <p align="center">
+  <img src="img/9list_project.png" />
+  </p>
+  
+3. **Listagem de Projetos por Id**
+  <p align="center">
+  <img src="img/10list_project_by_id.png" />
+  </p>
+  
+4. **Atualização de Projetos**
+  <p align="center">
+  <img src="img/11update.png" />
+  </p>
+  
+5. **Deletar Projeto por Id**
+  <p align="center">
+  <img src="img/12delete_project.png" />
   </p>
   
 ## :warning: Execução no Sistema Linux 
