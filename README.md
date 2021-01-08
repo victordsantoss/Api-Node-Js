@@ -25,31 +25,31 @@
   - **[NodeMailer](https://www.npmjs.com/package/nodemailer)**: Pacotes para trabalhar com recebimento de E-mails.
   
 ## :collision: A Aplicação
-1. Cadastro de Usuário
+1. **Cadastro de Usuário**
   <p align="center">
   <img src="img/1register.png" />
   </p>
-2. Autenticação de Usuário
+2. **Autenticação de Usuário**
   <p align="center">
   <img src="img/2auth.png" />
   </p>
-3. Listagem de Usuários
+3. **Listagem de Usuários**
   <p align="center">
   <img src="img/3list.png" />
   </p>
-4. Listagem de Usuário por Id
+4. **Listagem de Usuário por Id**
   <p align="center">
   <img src="img/4list_by_id.png" />
   </p>
-5. Esqueci minha Senha
+5. **Esqueci minha Senha**
   <p align="center">
   <img src="img/5forgot_password.png" />
   </p>
-6. Redefinir Senha
+6. **Redefinir Senha**
   <p align="center">
   <img src="img/6reset_password.png" />
   </p>
-7. Cadastro de Usuário
+7. **Cadastro de Usuário**
   <p align="center">
   <img src="img/7delete_user_by_id.png" />
   </p>
