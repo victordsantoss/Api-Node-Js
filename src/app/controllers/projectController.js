@@ -90,7 +90,7 @@ router.delete('/:projectId', async (req, res) => {
     try {
         await Project.findByIdAndRemove(req.params.projectId).populate('user');
 
-        return res.send();
+        return res.send({message: "OK!"});
     } catch (err) {
         return res.status(400).send({ error: 'Error deleting projects' });
     }
