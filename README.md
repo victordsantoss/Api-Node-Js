@@ -1,5 +1,5 @@
 # :interrobang: Api NodeJs + Express + MongoDB
-  Aplicação desenvolvida na Série Api Nodejs ministrada pelo Grupo [RocketSeat](https://rocketseat.com.br/). Feita em NodeJs, esta API conta com uma estrutura de cadastro, autentificação, recupéração de senha e CRUD relacional com MongoDB.
+  Aplicação desenvolvida na Série Api Nodejs ministrada pelo Grupo [RocketSeat](https://rocketseat.com.br/). Feita em NodeJs, esta API conta com uma estrutura de cadastro, autentificação, recuperação de senha e CRUD relacional com MongoDB.
   
  
 ## :computer: Tecnologias
